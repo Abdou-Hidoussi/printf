@@ -71,11 +71,8 @@ int _printf(const char *s, ...)
 					break;
 				case 's':
 					ch = va_arg(ap, char*);
-					if (ch)
-					{
-						print_str(ch);
-						r += _strlen(ch);
-					}
+					print_str(ch);
+					r += _strlen(ch);
 					i += 1;
 					r -= 2;
 					break;
