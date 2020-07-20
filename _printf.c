@@ -81,6 +81,9 @@ int _printf(const char *s, ...)
 					i += 1;
 					r -= 1;
 					break;
+				default:
+					_putchar(s[i]);
+					break;
 			}
 		}
 	}
