@@ -65,6 +65,7 @@ int _printf(const char *s, ...)
 					_putchar(va_arg(ap, int));
 					r += 1;
 					i += 2;
+					r -= 2;
 					break;
 				case 's':
 					ch = va_arg(ap, char*);
@@ -74,9 +75,9 @@ int _printf(const char *s, ...)
 						r += _strlen(ch);
 					}
 					i += 2;
+					r -= 2;
 					break;
 			}
-			r -= 2;
 		}
 		_putchar(s[i]);
 	}
