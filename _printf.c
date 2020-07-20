@@ -50,7 +50,7 @@ void print_str(char *str)
 */
 int _printf(const char *s, ...)
 {
-	int i;
+	int i, r = 0;
 	char *ch;
 	va_list ap;
 
@@ -63,6 +63,7 @@ int _printf(const char *s, ...)
 			{
 				case 'c':
 					_putchar(va_arg(ap, int));
+					r += 1;
 					i += 2;
 					break;
 				case 's':
@@ -70,13 +71,16 @@ int _printf(const char *s, ...)
 					if (ch)
 					{
 						print_str(ch);
+						r += _strlen(ch);
 					}
 					i += 2;
 					break;
 			}
+			r -= 2;
 		}
 		_putchar(s[i]);
 	}
+	r += _strlen(s);
 	va_end(ap);
-	return (_strlen(s));
+	return (r);
 }
