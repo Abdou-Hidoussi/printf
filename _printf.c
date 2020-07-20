@@ -58,7 +58,9 @@ int _printf(const char *s, ...)
 	va_start(ap, 0);
 	for (i = 0; i < l; i++)
 	{
-		if (s[i] == '%')
+		if (s[i] != '%')
+			_putchar(s[i]);
+		else
 		{
 			switch (s[i + 1])
 			{
@@ -84,8 +86,6 @@ int _printf(const char *s, ...)
 					break;
 			}
 		}
-		if (s[i - 1] != '%')
-			_putchar(s[i]);
 	}
 	r += l;
 	va_end(ap);
