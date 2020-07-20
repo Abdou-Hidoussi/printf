@@ -50,10 +50,11 @@ void print_str(char *str)
 */
 int _printf(const char *s, ...)
 {
+	int i;
 	va_list ap;
 
 	va_start(ap, 0);
-	for (int i = 0; i < _strlen(s); ++i)
+	for (i = 0; i < _strlen(s); ++i)
 	{
 		if (s[i] == '%')
 		{
