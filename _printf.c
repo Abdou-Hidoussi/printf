@@ -50,12 +50,13 @@ void print_str(char *str)
 */
 int _printf(const char *s, ...)
 {
-	int i, r = 0;
+	int i, l = 0, r = 0;
 	char *ch;
 	va_list ap;
 
+	l = _strlen(s);
 	va_start(ap, 0);
-	for (i = 0; i < _strlen(s); ++i)
+	for (i = 0; i < l; i++)
 	{
 		if (s[i] == '%')
 		{
@@ -63,7 +64,7 @@ int _printf(const char *s, ...)
 			{
 				case 'c':
 					_putchar(va_arg(ap, int));
-					i += 2;
+					i += 1;
 					r -= 1;
 					break;
 				case 's':
@@ -73,19 +74,20 @@ int _printf(const char *s, ...)
 						print_str(ch);
 						r += _strlen(ch);
 					}
-					i += 2;
+					i += 1;
 					r -= 2;
 					break;
 				case '%':
 					_putchar('%');
-					i += 2;
+					i += 1;
 					r -= 1;
 					break;
 			}
 		}
-		_putchar(s[i]);
+		if (s[i - 1] != '%')
+			_putchar(s[i]);
 	}
-	r += _strlen(s);
+	r += l;
 	va_end(ap);
 	return (r);
 }
