@@ -63,9 +63,8 @@ int _printf(const char *s, ...)
 			{
 				case 'c':
 					_putchar(va_arg(ap, int));
-					r += 1;
 					i += 2;
-					r -= 2;
+					r -= 1;
 					break;
 				case 's':
 					ch = va_arg(ap, char*);
@@ -76,6 +75,11 @@ int _printf(const char *s, ...)
 					}
 					i += 2;
 					r -= 2;
+					break;
+				case '%':
+					_putchar('%');
+					i += 2;
+					r -= 1;
 					break;
 			}
 		}
