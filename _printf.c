@@ -51,6 +51,7 @@ void print_str(char *str)
 int _printf(const char *s, ...)
 {
 	int i;
+	char *ch;
 	va_list ap;
 
 	va_start(ap, 0);
@@ -65,7 +66,11 @@ int _printf(const char *s, ...)
 					i += 2;
 					break;
 				case 's':
-					print_str(va_arg(ap, char*));
+					ch = va_arg(ap, char*);
+					if (ch)
+					{
+						print_str(ch);
+					}
 					i += 2;
 					break;
 			}
