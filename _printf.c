@@ -23,7 +23,7 @@ int _strlen(const char *s)
 	int i;
 
 	i = 0;
-	while (*s != '\0')
+	while (*s != '\0' && s)
 	{
 		s++;
 		i++;
@@ -58,7 +58,7 @@ int _printf(const char *s, ...)
 	va_start(ap, 0);
 	for (i = 0; i < l; i++)
 	{
-		if (s[i] != '%')
+		if (s[i] != '%' || (s[i] == '%' && s[i + 1] == '\0'))
 			_putchar(s[i]);
 		else
 		{
