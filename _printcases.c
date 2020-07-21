@@ -46,7 +46,7 @@ int print_int(int n)
 			j++;
 			t++;
 		}
-		while (j > 0)
+		while (r > 0)
 		{
 			_putchar(r % 10 + '0');
 			r = r / 10;
