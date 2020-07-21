@@ -26,5 +26,6 @@ int _tobin(unsigned int d)
     {
         _putchar(s[i]);
     }
+    free(s);
     return (j + 1);
 }
