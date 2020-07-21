@@ -9,7 +9,7 @@
 *@d: unsigned int
 *Return: int
 */
-int _tobin(unsigned int d)
+int _tobin(unsigned long d)
 {
     int i, j = 0;
     char *s;
