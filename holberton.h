@@ -5,7 +5,7 @@ int _putchar(char c);
 int _strlen(const char *s);
 void print_str(char *str);
 int print_int(int n);
-int _tobin(unsigned long d);
+int _tobin(unsigned int d);
 int _printf(const char *s, ...);
 
 #endif
