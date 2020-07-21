@@ -16,7 +16,7 @@ void print_str(char *str)
 	}
 }
 /**
-*print_number - 0
+*print_int - 0
 *@n: int
 *Return: num of written chars
 */
