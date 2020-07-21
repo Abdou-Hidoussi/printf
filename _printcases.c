@@ -22,7 +22,7 @@ void print_str(char *str)
 */
 int print_int(int n)
 {
-	long int i, r, j = 0;
+	long int i, r, j = 0, t = 0;
 
 	i = n;
 	r = 0;
@@ -35,6 +35,7 @@ int print_int(int n)
 		i = -n;
 		_putchar('-');
 		j++;
+		t++;
 	}
 	if (n != 0)
 	{
@@ -43,18 +44,20 @@ int print_int(int n)
 			r = (r * 10) + (i % 10);
 			i = i / 10;
 			j++;
+			t++;
 		}
-		while (r > 0)
+		while (j > 0)
 		{
 			_putchar(r % 10 + '0');
 			r = r / 10;
+			j--;
 		}
 	}
 	else
 	{
 		_putchar('0');
-		j++;
+		t++;
 	}
-	return (j);
+	return (t);
 
 }
