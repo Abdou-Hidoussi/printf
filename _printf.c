@@ -39,6 +39,11 @@ void cases(va_list ap, const char *s, int *i, int *r)
 			*i += 1;
 			*r -= 2;
 			break;
+		case 'd':
+			*r += print_int(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
 		default:
 			_putchar(s[*i]);
 			break;
