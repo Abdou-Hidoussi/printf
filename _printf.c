@@ -3,47 +3,6 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
-*_strlen - 0
-*@s: char
-*Return:: i
-*/
-int _strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-	while (*s != '\0' && s)
-	{
-		s++;
-		i++;
-	}
-	return (i);
-}
-/**
-*print_str - 0
-*@str: char
-*
-*/
-void print_str(char *str)
-{
-	while (*str != '\0')
-	{
-		_putchar(*str);
-		str++;
-	}
-}
-/**
 *cases - 0
 *@ap: list of arguments
 *@s: string
@@ -72,6 +31,13 @@ void cases(va_list ap, const char *s, int *i, int *r)
 					_putchar('%');
 					*i += 1;
 					*r -= 1;
+					break;
+				case 'd':
+					break;
+				case 'i':
+					*r += print_int(va_arg(ap, int));
+					*i += 1;
+					*r -= 2;
 					break;
 				default:
 					_putchar(s[*i]);
