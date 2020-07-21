@@ -2,7 +2,51 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "holberton.h"
-
+/**
+*delcases - 0
+*@ap: list of arguments
+*@s: string
+*@i: position of char
+*@r: num written chars
+*Return: length
+*/
+void delcases(va_list ap, const char *s, int *i, int *r)
+{
+	switch (s[*i + 1])
+	{
+		case 'i':
+			*r += print_int(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		case 'd':
+			*r += print_int(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		case 'b':
+			*r += _tobin(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		case 'o':
+			*r += _print_o(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		case 'x':
+			*r += _print_x(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		case 'X':
+			*r += _print_X(va_arg(ap, int));
+			break;
+		default:
+			_putchar(s[*i]);
+			break;
+	}
+}
 /**
 *cases - 0
 *@ap: list of arguments
@@ -34,38 +78,8 @@ void cases(va_list ap, const char *s, int *i, int *r)
 			*i += 1;
 			*r -= 1;
 			break;
-		case 'i':
-			*r += print_int(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
-		case 'd':
-			*r += print_int(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
-		case 'b':
-			*r += _tobin(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
-		case 'o':
-			*r += _print_o(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
-		case 'x':
-			*r += _print_X(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
-		case 'X':
-			*r += _print_x(va_arg(ap, int));
-			*i += 1;
-			*r -= 2;
-			break;
 		default:
-			_putchar(s[*i]);
+			delcases(ap, s, i, r);
 			break;
 	}
 }
