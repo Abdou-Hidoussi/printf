@@ -66,7 +66,7 @@ _putchar(s[i]);
 return (j + 1);
 }
 /**
-*_print_x - 0
+*_print_X - 0
 *@d: unsigned
 *Return: int
 */
