@@ -1,0 +1,19 @@
+.TH _PRINTF 1
+.SH NAME
+_printf \- print data
+.SH SYNOPSIS
+.B _printf 
+.IR FORMAT
+[\fB\fIARGUMENT\fR] ...
+.SH DESCRIPTION
+Print ARGUMENT(s) according to FORMAT
+.TP
+%d print double ARGUMENT
+.TP
+%i print int ARGUMENT
+.TP
+%c print char ARGUMENT
+.TP
+%s print string ARGUMENT
+.TP
+%% print % ARGUMENT
