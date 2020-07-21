@@ -13,36 +13,37 @@
 void cases(va_list ap, const char *s, int *i, int *r)
 {
 	char *ch;
-			switch (s[*i + 1])
-			{
-				case 'c':
-					_putchar(va_arg(ap, int));
-					*i += 1;
-					*r -= 1;
-					break;
-				case 's':
-					ch = va_arg(ap, char*);
-					print_str(ch);
-					*r += _strlen(ch);
-					*i += 1;
-					*r -= 2;
-					break;
-				case '%':
-					_putchar('%');
-					*i += 1;
-					*r -= 1;
-					break;
-				case 'd':
-					break;
-				case 'i':
-					*r += print_int(va_arg(ap, int));
-					*i += 1;
-					*r -= 2;
-					break;
-				default:
-					_putchar(s[*i]);
-					break;
-			}
+
+	switch (s[*i + 1])
+	{
+		case 'c':
+			_putchar(va_arg(ap, int));
+			*i += 1;
+			*r -= 1;
+			break;
+		case 's':
+			ch = va_arg(ap, char*);
+			print_str(ch);
+			*r += _strlen(ch);
+			*i += 1;
+			*r -= 2;
+			break;
+		case '%':
+			_putchar('%');
+			*i += 1;
+			*r -= 1;
+			break;
+		case 'd':
+			break;
+		case 'i':
+			*r += print_int(va_arg(ap, int));
+			*i += 1;
+			*r -= 2;
+			break;
+		default:
+			_putchar(s[*i]);
+			break;
+	}
 }
 /**
 *_printf - 0
