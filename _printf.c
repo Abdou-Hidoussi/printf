@@ -33,8 +33,6 @@ void cases(va_list ap, const char *s, int *i, int *r)
 			*i += 1;
 			*r -= 1;
 			break;
-		case 'd':
-			break;
 		case 'i':
 			*r += print_int(va_arg(ap, int));
 			*i += 1;
