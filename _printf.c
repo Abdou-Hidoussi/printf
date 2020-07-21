@@ -86,6 +86,7 @@ void cases(va_list ap, const char *s, int i, int r)
 int _printf(const char *s, ...)
 {
 	int i, l = _strlen(s), r = 0;
+	char *ch;
 	va_list ap;
 
 	va_start(ap, 0);
@@ -95,7 +96,29 @@ int _printf(const char *s, ...)
 			_putchar(s[i]);
 		else
 		{
-			cases(ap, s, i, r);
+			switch (s[i + 1])
+			{
+				case 'c':
+					_putchar(va_arg(ap, int));
+					i += 1;
+					r -= 1;
+					break;
+				case 's':
+					ch = va_arg(ap, char*);
+					print_str(ch);
+					r += _strlen(ch);
+					i += 1;
+					r -= 2;
+					break;
+				case '%':
+					_putchar('%');
+					i += 1;
+					r -= 1;
+					break;
+				default:
+					_putchar(s[i]);
+					break;
+			}
 		}
 	}
 	r += l;
